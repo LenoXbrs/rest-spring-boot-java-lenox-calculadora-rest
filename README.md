@@ -1,1 +1,2 @@
-# rest-spring-boot-java-erudio
+# rest-spring-boot-java-lenox
+Web service rest calculadora
