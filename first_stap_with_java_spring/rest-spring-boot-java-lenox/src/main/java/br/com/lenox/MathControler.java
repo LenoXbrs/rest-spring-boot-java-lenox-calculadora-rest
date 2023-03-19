@@ -31,6 +31,21 @@ public class MathControler {
 
 		return convertToDouble(numberOne) +  convertToDouble(numberTwo) ;
 	}
+	@RequestMapping(value = "/sumJson/{numberOne}/{numberTwo}", method=RequestMethod.GET)
+	public JsonMath somadorJson(
+			@PathVariable(value = "numberOne") String numberOne, 
+			@PathVariable(value = "numberTwo") String numberTwo
+			
+			) throws Exception {
+		
+		if(!isNumeric(numberOne) || !isNumeric(numberTwo)) {
+			throw new UnsupportedMathOperationException("Error !!! Please set a numeric value"); 
+		}
+		Double soma =convertToDouble(numberOne) +  convertToDouble(numberTwo);
+		String vetor[] = {numberOne,numberTwo};
+		
+		return new JsonMath(vetor, "soma" ,soma) ;
+	}
 
 	
 	
